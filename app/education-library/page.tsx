@@ -64,7 +64,11 @@ function ProgramSection({
           <p className="text-bone/55 text-sm mt-2 max-w-xl leading-relaxed">{description}</p>
         </div>
         {cta && (
-          <Link href={cta.href} className="btn-secondary text-sm shrink-0">{cta.label}</Link>
+          cta.href.startsWith("http") ? (
+            <a href={cta.href} target="_blank" rel="noopener noreferrer" className="btn-secondary text-sm shrink-0">{cta.label}</a>
+          ) : (
+            <Link href={cta.href} className="btn-secondary text-sm shrink-0">{cta.label}</Link>
+          )
         )}
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -174,7 +178,7 @@ export default function EducationLibraryPage() {
           eyebrow="Vivinate Farms"
           title="Food & Water Security"
           description="Most American households are three supply chain disruptions from food insecurity. These videos cover the 14-day minimum buffer, container farming, local sourcing, and water storage."
-          cta={{ href: "/food", label: "Join Vivinate Farms →" }}
+          cta={{ href: "https://www.vivinatefarms.org", label: "Visit vivinatefarms.org ↗" }}
           videos={[
             { id: "fw1", title: "Food & Water Resilience — Your Household Baseline", category: "Food & Water", duration: "8:15", color: "#0a1000" },
             { id: "fw2", title: "Container Farms 101 — Vivinate Farms Intro", category: "Vivinate Farms", duration: "7:30", color: "#100500" },

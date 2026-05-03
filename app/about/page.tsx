@@ -17,7 +17,7 @@ export default function AboutPage() {
       <Section>
         <div className="grid md:grid-cols-[2fr_1fr] gap-10">
           <div className="space-y-6 text-bone/85 leading-relaxed h-serif text-lg">
-            <p>Evolve8 Enterprises is the private company. Vivinate Farms is the public-interest, regenerative agriculture and food-sovereignty arm, fiscally sponsored by Far Away Projects (501(c)(3), EIN 82-1917723) and on the path to its own 501(c)(3) determination.</p>
+            <p>Evolve8 Enterprises is the private company. <a href="https://www.vivinatefarms.org" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Vivinate Farms</a> is the public-interest, regenerative agriculture and food-sovereignty arm, fiscally sponsored by Far Away Projects (501(c)(3), EIN 82-1917723) and on the path to its own 501(c)(3) determination.</p>
             <p>Together, they run eight programs covering the systems in active collapse for most American families — legal, medical, food, money, work, land, skills, and a public blog that names what is happening, in plain language, without fear.</p>
             <p>This is not a foundation. This is not a government program. This is one founder, one campaign, and a Resilience Points ledger that any family in DFW can join — for free.</p>
           </div>
@@ -36,8 +36,9 @@ export default function AboutPage() {
               <p className="eyebrow mb-1">Founder</p>
               <h3 className="h-display text-bone text-xl mb-2">Reya Porche</h3>
               <p className="text-bone/75 text-sm leading-relaxed">
-                Dallas-Fort Worth, TX. Builder, organizer, and founder of Vivinate Farms and Evolve8
-                Enterprises. Public contact: reyaporche@vivinatefarms.org · 469-844-7627.
+                Dallas-Fort Worth, TX. Builder, organizer, and founder of{" "}
+                <a href="https://www.vivinatefarms.org" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Vivinate Farms</a>{" "}
+                and Evolve8 Enterprises. Public contact: reyaporche@vivinatefarms.org · 469-844-7627.
               </p>
               <Link href="/press" className="mt-4 inline-block btn-secondary text-sm">Media kit →</Link>
             </div>

@@ -1,9 +1,10 @@
+"use client";
 import Link from "next/link";
 
 const PROGRAMS = [
   { num: "01", title: "Silent Apocalypse Campaign", desc: "Public transparency, simulator, and risk index documenting the civilizational collapse.", href: "/silent-apocalypse" },
   { num: "02", title: "Public Action & Legal Education Network", desc: "Search what failed you. Document harm across 12 categories nationally. Not legal advice.", href: "/legal" },
-  { num: "03", title: "Vivinate Farms — Food, Water & Environment", desc: "Fiscally sponsored nonprofit arm building family resilience and youth education.", href: "/food" },
+  { num: "03", title: "Vivinate Farms — Food, Water & Environment", desc: "Fiscally sponsored nonprofit arm building family resilience and youth education.", href: "/food", externalHref: "https://www.vivinatefarms.org" },
   { num: "04", title: "Macro8 — Open Financial Intelligence", desc: "Open-source financial modeling subnet with a TAO/Bittensor donation rail.", href: "/money/whitepaper" },
   { num: "05", title: "Work8 — Human Value Labor Network", desc: "Independent work pathways, lead generation, and campus employment. Work for yourself.", href: "/work" },
   { num: "06", title: "Resilience Points & Skills Academy", desc: "Learn the systems. Build the skills. Earn access. Non-cash participation credits.", href: "/skills" },
@@ -29,6 +30,13 @@ export function ProgramsGrid() {
             </div>
             <h3 className="h-display text-lg mb-2 group-hover:text-accent transition-colors">{p.title}</h3>
             <p className="text-sm text-bone/70 leading-relaxed">{p.desc}</p>
+            {p.externalHref && (
+              <a href={p.externalHref} target="_blank" rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="mt-3 inline-block text-[10px] font-mono text-accent/60 hover:text-accent transition-colors">
+                {p.externalHref.replace("https://", "")} ↗
+              </a>
+            )}
           </Link>
         ))}
       </div>

@@ -42,7 +42,11 @@ export function Footer() {
             <li><Link href="/silent-apocalypse" className="hover:text-accent">Silent Apocalypse</Link></li>
             <li><Link href="/legal" className="hover:text-accent">Public Action & Class Actions</Link></li>
             <li><Link href="/legal/help-platform" className="hover:text-accent">Legal Help Platform</Link></li>
-            <li><Link href="/food" className="hover:text-accent">Vivinate Farms</Link></li>
+            <li>
+              <Link href="/food" className="hover:text-accent">Vivinate Farms</Link>
+              <a href="https://www.vivinatefarms.org" target="_blank" rel="noopener noreferrer"
+                className="ml-2 text-accent/60 hover:text-accent text-[10px] font-mono transition-colors">↗ vivinatefarms.org</a>
+            </li>
             <li><Link href="/medical" className="hover:text-accent">Medical + Way Stations</Link></li>
             <li><Link href="/money" className="hover:text-accent">Macro8</Link></li>
             <li><Link href="/work" className="hover:text-accent">Work8</Link></li>

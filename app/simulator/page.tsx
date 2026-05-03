@@ -42,7 +42,7 @@ const SYSTEM_DATA: Record<keyof SubScores, {
     statDetail: "During COVID-19, store shelves went empty within 48 hours of panic buying. The logistics system has not been hardened since. Local food production in the U.S. has declined 40% since the 1970s.",
     whyWeAsked: "Food is the most immediate survival system. We asked about your buffer, production capability, water storage, and local sourcing because a household with less than a week of food and no production capability is one supply chain event — storm, strike, shortage — away from crisis.",
     programName: "Vivinate Farms",
-    programHref: "/food",
+    programHref: "https://www.vivinatefarms.org",
   },
   housing: {
     icon: "⌂",
@@ -431,7 +431,7 @@ export default function SimulatorPage() {
   const programMap: Record<keyof SubScores, { href: string; label: string }> = {
     work: { href: "/work", label: "Work8" },
     purchasingPower: { href: "/money/families", label: "Macro8" },
-    food: { href: "/food", label: "Vivinate Farms" },
+    food: { href: "https://www.vivinatefarms.org", label: "Vivinate Farms" },
     housing: { href: "/land", label: "Land Access" },
     medical: { href: "/medical/way-stations", label: "Way Stations" },
     legal: { href: "/legal", label: "Legal Action" },
@@ -546,13 +546,15 @@ export default function SimulatorPage() {
                           <p className="text-bone/80 text-sm leading-relaxed">{personalInsight}</p>
                         </div>
                         <p className="text-[10px] font-mono uppercase tracking-widest text-bone/35 mb-2">Evolve8 program for this system</p>
-                        <Link href={sys.programHref}
+                        {/* eslint-disable-next-line react/jsx-no-target-blank */}
+                        <a href={sys.programHref}
+                          {...(sys.programHref.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                           className="block border border-line hover:border-accent px-4 py-3 transition-colors group">
                           <p className="text-accent text-xs font-mono mb-0.5">{sys.programName}</p>
                           <p className="text-bone/70 text-xs group-hover:text-bone transition-colors">
                             {v >= 70 ? "Urgent — start here →" : v >= 45 ? "Address this system →" : "Maintain and build →"}
                           </p>
-                        </Link>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -618,9 +620,15 @@ export default function SimulatorPage() {
               <div className="flex flex-col gap-2 min-w-0">
                 <span className="text-bone/85 text-sm leading-relaxed">{m.text}</span>
                 {m.href && (
-                  <Link href={m.href} className="text-accent text-xs font-mono hover:underline self-start">
-                    {m.cta ?? "Learn more →"}
-                  </Link>
+                  m.href.startsWith("http") ? (
+                    <a href={m.href} target="_blank" rel="noopener noreferrer" className="text-accent text-xs font-mono hover:underline self-start">
+                      {m.cta ?? "Learn more →"}
+                    </a>
+                  ) : (
+                    <Link href={m.href} className="text-accent text-xs font-mono hover:underline self-start">
+                      {m.cta ?? "Learn more →"}
+                    </Link>
+                  )
                 )}
               </div>
             </li>
@@ -636,12 +644,16 @@ export default function SimulatorPage() {
             const p = programMap[k];
             const v = Math.round(result.sub[k]);
             const barColor = v < 35 ? "border-l-emerald-500" : v < 55 ? "border-l-amber-500" : v < 75 ? "border-l-orange-500" : "border-l-accent";
-            return (
-              <Link key={k} href={p.href} className={`card block group border-l-2 ${barColor} py-3`}>
-                <p className="text-bone/35 text-[10px] font-mono mb-0.5">{subLabels[k]}</p>
-                <h4 className="h-display text-bone text-sm group-hover:text-accent transition-colors">{p.label}</h4>
-                <p className="text-bone/35 text-xs mt-1 font-mono">Score: {v}</p>
-              </Link>
+            const cls = `card block group border-l-2 ${barColor} py-3`;
+            const inner = <>
+              <p className="text-bone/35 text-[10px] font-mono mb-0.5">{subLabels[k]}</p>
+              <h4 className="h-display text-bone text-sm group-hover:text-accent transition-colors">{p.label}</h4>
+              <p className="text-bone/35 text-xs mt-1 font-mono">Score: {v}</p>
+            </>;
+            return p.href.startsWith("http") ? (
+              <a key={k} href={p.href} target="_blank" rel="noopener noreferrer" className={cls}>{inner}</a>
+            ) : (
+              <Link key={k} href={p.href} className={cls}>{inner}</Link>
             );
           })}
         </div>

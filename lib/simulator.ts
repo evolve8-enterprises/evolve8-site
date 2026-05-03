@@ -205,9 +205,9 @@ export function firstEightMoves(top3Keys: (keyof SubScores)[]): SimMove[] {
     ],
     food: [
       {
-        text: "Apply for the Vivinate Farms Family Module — kale, tomatoes, peppers, herbs. Your household's first 14-day food buffer, grown and distributed with support in DFW. No gardening experience required.",
-        href: "/food",
-        cta: "Apply for Vivinate Farms →",
+        text: "Apply for the Vivinate Farms Family Module at vivinatefarms.org — kale, tomatoes, peppers, herbs. Your household's first 14-day food buffer, grown and distributed with support in DFW. No gardening experience required.",
+        href: "https://www.vivinatefarms.org",
+        cta: "Visit vivinatefarms.org →",
       },
       {
         text: "Watch the Food & Water Resilience series in the Education Library — three videos on building a real household food and water plan, sourcing from local farms, and setting the 14-day minimum buffer.",

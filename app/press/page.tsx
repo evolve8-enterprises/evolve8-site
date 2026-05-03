@@ -7,6 +7,7 @@ export const metadata = { title: "Press & Media — Evolve8 Enterprises" };
 const FACTS = [
   { k: "Founder", v: "Reya Porche, Dallas-Fort Worth, TX" },
   { k: "Programs", v: "Eight, covering legal, medical, food, money, work, land, skills, and a public blog" },
+  { k: "Vivinate Farms", v: "vivinatefarms.org", href: "https://www.vivinatefarms.org" },
   { k: "Fiscal sponsor", v: "Far Away Projects (501(c)(3), EIN 82-1917723)" },
   { k: "Campaign launch", v: "May 2026" },
   { k: "Competition deadline", v: "Perplexity Billion Dollar Build · Submission June 2, 2026" },
@@ -40,9 +41,9 @@ export default function PressPage() {
             <h2 className="h-display text-bone text-3xl md:text-4xl mb-2">Reya Porche</h2>
             <p className="text-bone/55 font-mono text-xs uppercase tracking-widest mb-5">Founder · Evolve8 Enterprises & Vivinate Farms · Dallas-Fort Worth, TX</p>
             <div className="space-y-4 text-bone/80 leading-relaxed max-w-2xl">
-              <p>Reya Porche is the founder of Evolve8 Enterprises and Vivinate Farms, a private public-interest company and its fiscally sponsored nonprofit arm. Based in Dallas-Fort Worth, Texas, she launched the Silent Apocalypse Public Transparency Campaign to name and document the systemic collapse of food, housing, healthcare, jobs, and money that most American families are experiencing without a framework to understand it.</p>
+              <p>Reya Porche is the founder of Evolve8 Enterprises and <a href="https://www.vivinatefarms.org" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Vivinate Farms</a>, a private public-interest company and its fiscally sponsored nonprofit arm. Based in Dallas-Fort Worth, Texas, she launched the Silent Apocalypse Public Transparency Campaign to name and document the systemic collapse of food, housing, healthcare, jobs, and money that most American families are experiencing without a framework to understand it.</p>
               <p>Evolve8 Enterprises runs eight programs covering legal access, medical support, food production, financial education, workforce development, land competition, skills training, and public documentation — all integrated around a single mission: help families measure the harm, document it, and build something durable before conditions worsen.</p>
-              <p>Vivinate Farms, the regenerative agriculture and food-sovereignty arm, is fiscally sponsored by Far Away Projects (501(c)(3), EIN 82-1917723) and is pursuing its own 501(c)(3) determination.</p>
+              <p><a href="https://www.vivinatefarms.org" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Vivinate Farms</a>, the regenerative agriculture and food-sovereignty arm, is fiscally sponsored by Far Away Projects (501(c)(3), EIN 82-1917723) and is pursuing its own 501(c)(3) determination. Full program details and family applications: <a href="https://www.vivinatefarms.org" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-mono">vivinatefarms.org</a></p>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href="mailto:press@evolve8enterprises.com" className="btn-primary text-sm">Email press@ →</a>
@@ -71,7 +72,13 @@ export default function PressPage() {
               {FACTS.map((f) => (
                 <div key={f.k} className="grid grid-cols-[160px_1fr] gap-4 border-b border-line pb-3 text-sm">
                   <dt className="text-bone/55 font-mono uppercase tracking-widest text-xs">{f.k}</dt>
-                  <dd className="text-bone/90">{f.v}</dd>
+                  <dd className="text-bone/90">
+                    {f.href ? (
+                      <a href={f.href} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-mono">
+                        {f.v} ↗
+                      </a>
+                    ) : f.v}
+                  </dd>
                 </div>
               ))}
             </dl>
