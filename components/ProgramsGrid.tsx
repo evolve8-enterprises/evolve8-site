@@ -23,7 +23,9 @@ export function ProgramsGrid() {
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
         {PROGRAMS.map((p) => (
-          <Link key={p.num} href={p.href} className="card group">
+          <div key={p.num} className="card group relative">
+            {/* Stretched invisible link covers the whole card for internal navigation */}
+            <Link href={p.href} className="absolute inset-0" aria-label={p.title} />
             <div className="flex items-start justify-between mb-6">
               <span className="tag">Program {p.num}</span>
               <span className="text-accent text-lg group-hover:translate-x-1 transition-transform">→</span>
@@ -32,12 +34,11 @@ export function ProgramsGrid() {
             <p className="text-sm text-bone/70 leading-relaxed">{p.desc}</p>
             {p.externalHref && (
               <a href={p.externalHref} target="_blank" rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="mt-3 inline-block text-[10px] font-mono text-accent/60 hover:text-accent transition-colors">
+                className="relative z-10 mt-3 inline-block text-[10px] font-mono text-accent/60 hover:text-accent transition-colors">
                 {p.externalHref.replace("https://", "")} ↗
               </a>
             )}
-          </Link>
+          </div>
         ))}
       </div>
     </section>

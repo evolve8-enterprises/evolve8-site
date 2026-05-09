@@ -62,6 +62,7 @@ export function Footer() {
             <li><a href="mailto:press@evolve8enterprises.com" className="hover:text-accent">press@evolve8enterprises.com</a><br/><span className="text-bone/50 text-[12px]">Media, journalists, podcasts</span></li>
             <li><a href="mailto:donate@evolve8enterprises.com" className="hover:text-accent">donate@evolve8enterprises.com</a><br/><span className="text-bone/50 text-[12px]">Donors and sponsors</span></li>
             <li><a href="mailto:founder@evolve8enterprises.com" className="hover:text-accent">founder@evolve8enterprises.com</a><br/><span className="text-bone/50 text-[12px]">Partners and investors</span></li>
+            <li><a href="mailto:jobs@evolve8enterprises.com" className="hover:text-accent">jobs@evolve8enterprises.com</a><br/><span className="text-bone/50 text-[12px]">Jobs &amp; employment</span></li>
             <li><a href="mailto:hello@evolve8enterprises.com" className="hover:text-accent">hello@evolve8enterprises.com</a><br/><span className="text-bone/50 text-[12px]">Everything else</span></li>
           </ul>
         </div>

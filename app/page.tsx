@@ -1,5 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { StatsBand } from "@/components/StatsBand";
+import { JobFairBand } from "@/components/JobFairBand";
 import { InheritedCollapses } from "@/components/InheritedCollapses";
 import { SimulatorTeaser } from "@/components/SimulatorTeaser";
 import { ProgramsGrid } from "@/components/ProgramsGrid";
@@ -13,6 +14,7 @@ export default function HomePage() {
     <>
       <Hero />
       <StatsBand />
+      <JobFairBand />
       <InheritedCollapses />
       <SimulatorTeaser />
       <ProgramsGrid />

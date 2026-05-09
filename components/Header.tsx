@@ -113,6 +113,10 @@ export function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden xl:flex items-center gap-5 text-xs flex-1 justify-center relative z-50">
+            <Link href="/work/virtual-job-fair" className="hover:brightness-110 transition-colors whitespace-nowrap text-accent font-semibold">
+              Job Fair
+            </Link>
+
             <Link href="/silent-apocalypse" className="hover:text-accent transition-colors whitespace-nowrap text-bone/85">
               Silent Apocalypse
             </Link>
@@ -173,6 +177,7 @@ export function Header() {
           <div className="xl:hidden border-t border-line bg-[#080808]">
             <div className="container-x py-5 flex flex-col gap-1">
               {[
+                { href: "/work/virtual-job-fair", label: "Job Fair" },
                 { href: "/silent-apocalypse", label: "Silent Apocalypse" },
                 { href: "/food", label: "Food" },
                 { href: "/work", label: "Work" },
